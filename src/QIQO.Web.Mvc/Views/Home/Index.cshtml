@@ -1,0 +1,15 @@
+﻿@model Entities.ViewModels.HomePageViewModel
+
+@{ 
+    ViewBag.Title = "Home Page";
+}
+
+<h1>Welcome to the QIQO Software Test Home Page</h1>
+
+<h2>@Model.CurrentAccount.AccountCode  - @Model.CurrentAccount.AccountName</h2>
+<h4>@Model.CurrentUser.UserName - @Model.CurrentUser.Email</h4>
+
+<div>
+    <a asp-action="Basket">View Basket</a>
+    @*@Html.ActionLink("Basket","Index")*@
+</div>

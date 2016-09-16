@@ -1,0 +1,61 @@
+﻿@model RegisterViewModel
+
+@{
+    ViewBag.Title = "Register Page";
+}
+
+<h1>Register with Me</h1>
+
+<form asp-controller="Account" asp-action="Register" method="post" role="form">
+    <h4>Create a new account.</h4>
+    <hr />
+    <div asp-validation-summary="ValidationSummary.All" ></div>
+    <div>
+        <label asp-for="Email"></label>
+        <div class="col-md-10">
+            <input asp-for="Email" />
+            <span asp-validation-for="Email" ></span>
+        </div>
+    </div>
+    <div>
+        <label asp-for="Password"></label>
+        <div class="col-md-10">
+            <input asp-for="Password" />
+            <span asp-validation-for="Password"></span>
+        </div>
+    </div>
+    <div>
+        <label asp-for="ConfirmPassword"></label>
+        <div class="col-md-10">
+            <input asp-for="ConfirmPassword" />
+            <span asp-validation-for="ConfirmPassword"></span>
+        </div>
+    </div>
+    <div>
+        <input type="submit" value="Register" />
+    </div>
+</form>
+    @*@using (Html.BeginForm("Register", "Account", FormMethod.Post))
+    {
+    @Html.AntiForgeryToken()
+    <div>
+        @Html.ValidationSummary()
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Email)
+        @Html.EditorFor(m => m.Email)
+        @Html.ValidationMessageFor(m => m.Email)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.Password)
+        @Html.EditorFor(m => m.Password)
+        @Html.ValidationMessageFor(m => m.Password)
+    </div>
+    <div>
+        @Html.LabelFor(m => m.ConfirmPassword)
+        @Html.EditorFor(m => m.ConfirmPassword)
+        @Html.ValidationMessageFor(m => m.ConfirmPassword)
+    </div>
+
+    
+    }*@

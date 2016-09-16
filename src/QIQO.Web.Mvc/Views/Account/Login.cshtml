@@ -1,0 +1,43 @@
+﻿@model LoginViewModel
+
+@{
+    ViewBag.Title = "Login Page";
+}
+
+<h1>Login</h1>
+
+
+<form asp-controller="Account" asp-action="Login" asp-route-returnurl="@Model.ReturnURL" method="post">
+
+    <div>
+        <div asp-validation-summary="ValidationSummary.All"></div>
+    </div>
+    <div>
+        <label asp-for="Email"></label>
+        <div class="col-md-10">
+            <input asp-for="Email" />
+            <span asp-validation-for="Email"></span>
+        </div>
+    </div>
+    <div>
+        <label asp-for="Password"></label>
+        <div class="col-md-10">
+            <input asp-for="Password" />
+            <span asp-validation-for="Password"></span>
+        </div>
+    </div>
+    <div>
+        <label asp-for="RememberMe"></label>
+        <div class="col-md-10">
+            <input asp-for="RememberMe" />
+            <span asp-validation-for="RememberMe"></span>
+        </div>
+        @*@Html.LabelFor(m => m.RememberMe)
+        @Html.EditorFor(m => m.RememberMe)
+        @Html.ValidationMessageFor(m => m.RememberMe)*@
+    </div>
+
+    <div>
+        <input type="submit" value="Login" />
+    </div>
+</form>

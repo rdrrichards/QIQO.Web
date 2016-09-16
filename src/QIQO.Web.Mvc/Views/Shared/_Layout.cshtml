@@ -1,0 +1,31 @@
+﻿@using System.Security.Claims
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div>
+        @if (User.IsSignedIn())
+        {
+            <div>@User.GetUserName()</div>
+            <form method="post" asp-controller="Account" asp-action="Logout">
+                <div><input type="submit" value="Logout" /></div>
+            </form>
+        }
+        else
+        {
+            <div>
+                <a asp-controller="Account" asp-action="Login">Login</a>
+                <a asp-controller="Account" asp-action="Register">Register</a>
+            </div>
+        }
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>
+
