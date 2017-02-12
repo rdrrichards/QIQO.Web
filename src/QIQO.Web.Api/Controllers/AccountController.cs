@@ -26,7 +26,7 @@ namespace QIQO.Web.Api.Controllers
 
         // GET: api/values
         [HttpGet("api/accounts")]
-        [Authorize]
+        //[Authorize]
         public JsonResult Get()
         {
             try

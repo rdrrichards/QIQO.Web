@@ -33,7 +33,17 @@ namespace QIQO.Web.Api
         {
             // Add framework services.
             services.AddCaching();
-            services.AddCors();
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AnyOrigin", builder =>
+                {
+                    builder
+                        .AllowAnyOrigin()
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                });
+            });
+
             services.AddMvc().AddJsonOptions
                 (
                     opt => { opt.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver(); }
@@ -95,11 +105,8 @@ namespace QIQO.Web.Api
                 //options.AccessDeniedPath = new PathString("/Account/Forbidden");
             });
 
+            app.UseCors("AnyOrigin");
             app.UseMvc(ConfigureRoutes); //ConfigureRoutes
-            app.UseCors(builder =>
-                builder.WithOrigins("http://localhost")
-           .AllowAnyHeader()
-    );
         }
 
         private void ConfigureRoutes(IRouteBuilder routeBuilder)

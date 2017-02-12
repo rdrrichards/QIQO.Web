@@ -29,8 +29,6 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Contracts\Contracts.csproj" />
-    <ProjectReference Include="..\..\Entities\Entities.csproj" />
-    <ProjectReference Include="..\..\Identity\Identity.csproj" />
     <ProjectReference Include="..\..\Proxies\Proxies.csproj" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\DNX\Microsoft.DNX.targets" Condition="'$(VSToolsPath)' != ''" />
